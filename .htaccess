@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond $1 !^(css|\style\.ccs|phpinfo\.php|index\.php|images|robots\.txt)
+RewriteRule ^(.*)$ /codeigniter/index.php/$1[L]
