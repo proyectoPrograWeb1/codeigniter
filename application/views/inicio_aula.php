@@ -58,7 +58,7 @@
             </div>
         </div>
         
-    	<h2>Aula CRUD</h2>
+    	<h2>Aul CRUD</h2>
         
         <div class="control-group">
             <form class="form-inline">
