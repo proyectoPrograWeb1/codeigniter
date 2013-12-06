@@ -55,8 +55,10 @@
             </div>
         
     	<h2>Estudiante CRUD</h2>
+
+        <button class="btn btn-primary">Insertar</button>
         <br>
-    	<section>
+    	<section id="form">
         	<form class="form-horizontal" action="<?php echo base_url(); ?>estudiantes/<?php echo $accion; ?>" method="post">
                 <?php echo $id; ?>
         		<p><label>Nombre:</label> <input autofocus type="text" name="first_name" value="<?php echo $first_name; ?>" required/></p>
@@ -102,15 +104,15 @@
         </section>
 
     </div>
+    <footer>
+        <script src="<?php echo base_url();?>js/jquery.js>"></script>
+        <script src="<?php echo base_url();?>js/bootstrap.min.js>"></script>
 
-    <script src="<?php echo base_url();?>js/jquery.js>"></script>
-    <script src="<?php echo base_url();?>js/bootstrap.min.js>"></script>
+        <script>
 
-    <script>
+           
 
-       
-
-    </script>
-    
+        </script>
+    </footer>
 </body>
 </html>

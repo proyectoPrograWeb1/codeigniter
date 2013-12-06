@@ -8,12 +8,22 @@
 
     
 </head>
+
+<!--?php
+
+    $document_number = '';
+    $password = '';
+    $accion = 'comprobar';
+    <?php echo $accion; ?>
+
+?-->
+
 <body style="background-color:#0088BB;"> <!--style="background-color:#99CCFF;"-->
 
     <div class="center-block" style="background-color:#F5F5DC; height:210px; width:385px; left:35%; top:200px; position: absolute; border-radius: 30px; box-shadow: 2px 2px 5px #999;">
         
         <!--Formulario para logiarse-->
-        <form class="form-horizontal" action="<?php echo base_url(); ?>usuarios/comprobar/<?php echo $accion; ?>" method="post" >
+        <form class="form-horizontal" action="<?php echo base_url(); ?>usuarios/comprobar/" method="post" >
             
             <div class="control-group">
                 <div class="controls">

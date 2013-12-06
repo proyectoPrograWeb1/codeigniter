@@ -38,9 +38,10 @@
 
             <div class="control-group">
                 <form>
-                    <input list="datos"/>
+                    <input type="text" list="datos" autofocus required/>
                     <datalis id="datos">
                     </datalis>
+                    <br>
                     <input type="submit" class="btn btn-primary" value="Mostrar">
                 </form>
             </div>
