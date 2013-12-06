@@ -25,33 +25,46 @@
 ?>
     
     <div style="background-color:#0088BB;" class="container" style="top:100px">
-            <div class="navbar">
-                  <div class="navbar-inner">
-                    <ul class="nav">
-                      <li>
-                        <a href="<?php echo base_url(); ?>inicial">  Inicio  </a>
-                      </li>
-                      <li>
-                        <a href="<?php echo base_url(); ?>estudiantes">Estudiantes</a>
-                      </li>
-                      <li>
-                        <a href="<?php echo base_url(); ?>profesores">Profesores</a>
-                      </li>
-                      <li  class="active">
-                        <a href="<?php echo base_url(); ?>cursos">Cursos</a>
-                      </li>
-                      <li>
-                        <a href="#">Grupos</a>
-                      </li>
-                      <li>
-                        <a href="#">Horario</a>
-                      </li>
-                    </ul>
-                </div>
+        <div class="navbar">
+              <div class="navbar-inner">
+                <ul class="nav">
+                  <li>
+                    <a href="<?php echo base_url(); ?>inicial">  Inicio  </a>
+                  </li>
+                  <li>
+                    <a href="<?php echo base_url(); ?>estudiantes">Estudiantes</a>
+                  </li>
+                  <li>
+                    <a href="<?php echo base_url(); ?>profesores">Profesores</a>
+                  </li>
+                  <li  class="active">
+                    <a href="<?php echo base_url(); ?>cursos">Cursos</a>
+                  </li>
+                  <li>
+                    <a href="<?php echo base_url(); ?>grupos">Grupos</a>
+                  </li>
+                  <li>
+                    <a href="#">Horario</a>
+                  </li>
+                </ul>
             </div>
+        </div>
         
     	<h2>Curso CRUD</h2>
-        <br>
+        
+        <div class="control-group">
+            <form class="form-inline">
+                <input type="text" list="datos" autofocus required/>
+                <datalis id="datos">
+                </datalis>
+        
+                <input type="submit" class="btn btn-primary" value="Mostrar">
+            </form>
+        </div>
+
+        <button class="btn btn-primary" id="insert">Insertar</button>
+        <br><br>
+        
     	<section>
         	<form class="form-vertical" action="<?php echo base_url(); ?>cursos/<?php echo $accion; ?>" method="post">
                 <?php echo $id; ?>
@@ -66,43 +79,41 @@
             <!--Creación de Tabla-->
             <table class="table table-striped table-bordered table-condensed">
             <tr>
-            <th>Codigo</th>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
             </tr>
             </table>
             <?php if (count($cursos) > 0 ): ?>
                 <?php foreach($cursos as $curso) : ?>
                 <table class="table table-striped table-bordered table-condensed"> <!--border="1" width="750px" cellpacing="50px"-->
                     <tr>
-                    <td class="codigo"><?php echo $curso->code; ?></td>
-                    <td class="name"><?php echo $curso->name; ?></td>
-                    <td class="description"><?php echo $curso->description; ?></td>
-                    <td colspan="0">
-                        <a href="<?php echo base_url(); ?>index.php/cursos/index/<?php echo $curso->id; ?>">
-                            <button class="btn">Modificar</button>
-                        <a/>
-                    </td>
-                    <td colspan="0">
-                        <a href="<?php echo base_url(); ?>index.php/cursos/eliminar/<?php echo $curso->id; ?>">
-                            <button class="btn btn-danger">Eliminar</button>
-                        <a/>
-                    </td>
+                        <td class="codigo"><?php echo $curso->code; ?></td>
+                        <td class="name"><?php echo $curso->name; ?></td>
+                        <td class="description"><?php echo $curso->description; ?></td>
+                        <td colspan="0">
+                            <a href="<?php echo base_url(); ?>index.php/cursos/index/<?php echo $curso->id; ?>">
+                                <button class="btn">Modificar</button>
+                            <a/>
+                        </td>
+                        <td colspan="0">
+                            <a href="<?php echo base_url(); ?>index.php/cursos/eliminar/<?php echo $curso->id; ?>">
+                                <button class="btn btn-danger">Eliminar</button>
+                            <a/>
+                        </td>
                     </tr>
                 </table>
                 <?php endforeach; ?>
             <?php else :?>
                 <h2>No hay registros</h2>
             <?php endif; ?>
-
         </section>
-
     </div>
 
-    <script src="<?php echo base_url();?>js/jquery.js>"></script>
-    <script src="<?php echo base_url();?>js/bootstrap.min.js>"></script>
+    <script src="<?php echo base_url();?>js/jquery.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
     
 </body>
 </html>

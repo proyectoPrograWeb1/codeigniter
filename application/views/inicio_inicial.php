@@ -25,7 +25,7 @@
                     <a href="<?php echo base_url(); ?>cursos">Cursos</a>
                   </li>
                   <li>
-                    <a href="#">Grupos</a>
+                    <a href="<?php echo base_url(); ?>grupos">Grupos</a>
                   </li>
                   <li>
                     <a href="#">Horario</a>
@@ -33,15 +33,14 @@
                 </ul>
             </div>
         </div>
-	    <section>
+    	    <section>
 
 
             <div class="control-group">
-                <form>
+                <form class="form-inline">
                     <input type="text" list="datos" autofocus required/>
                     <datalis id="datos">
                     </datalis>
-                    <br>
                     <input type="submit" class="btn btn-primary" value="Mostrar">
                 </form>
             </div>
@@ -96,15 +95,15 @@
                     <td class="email"><?php echo $profesor->email; ?></td>
                 </tr>
             </table>
-                    <?php endforeach; ?>
-                <?php else :?>
-                    <h2>Lo sentimos, aún no hay profesores registros</h2>
-                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php else :?>
+                <h2>Lo sentimos, aún no hay profesores registros</h2>
+            <?php endif; ?>
         </section>
     </div>
 
-    <script src="<?php echo base_url();?>js/jquery.js>"></script>
-    <script src="<?php echo base_url();?>js/bootstrap.min.js>"></script>
+    <script src="<?php echo base_url();?>js/jquery.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
     
 </body>
 </html>

@@ -24,7 +24,7 @@
                     <a href="<?php echo base_url(); ?>cursos">Cursos</a>
                   </li>
                   <li>
-                    <a href="#">Grupos</a>
+                    <a href="<?php echo base_url(); ?>grupos">Grupos</a>
                   </li>
                   <li>
                     <a href="#">Horario</a>
@@ -57,6 +57,17 @@
         ?>
 
     	<h2>Profesor CRUD</h2> <br>
+        <div class="control-group">
+            <form class="form-inline">
+                <input type="text" list="datos" autofocus required/>
+                <datalis id="datos">
+                </datalis>
+                <input type="submit" class="btn btn-primary" value="Mostrar">
+            </form>
+        </div>
+
+        <button class="btn btn-primary" id="insert">Insertar</button>
+        <br><br>
         <!--Formulario para cambiar datos-->
     	<section id="parrafo">
         	<form action="<?php echo base_url(); ?>profesores/<?php echo $accion; ?>" method="post">
@@ -102,7 +113,7 @@
             <?php endif; ?>
         </section>
     </div>    
-     <script src="<?php echo base_url();?>js/jquery.js>"></script>
-     <script src="<?php echo base_url();?>js/bootstrap.min.js>"></script>
+     <script src="<?php echo base_url();?>js/jquery.js"></script>
+     <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
 </body>
 </html>
