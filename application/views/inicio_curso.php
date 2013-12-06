@@ -29,7 +29,7 @@
               <div class="navbar-inner">
                 <ul class="nav">
                   <li>
-                    <a href="<?php echo base_url(); ?>inicial">Usuarios</a>
+                    <a href="<?php echo base_url(); ?>inicial">  Inicio  </a>
                   </li>
                   <li>
                     <a href="<?php echo base_url(); ?>estudiantes">Estudiantes</a>
@@ -42,12 +42,6 @@
                   </li>
                   <li>
                     <a href="<?php echo base_url(); ?>grupos">Grupos</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>aulas">Aulas</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>carreras">Carreras</a>
                   </li>
                   <li>
                     <a href="#">Horario</a>
@@ -68,36 +62,33 @@
             </form>
         </div>
 
-        <button class="btn btn-primary" id="mostrar">Ver Formulario</button>
-        <button class="btn btn-primary" id="ocultar">Ocultar Formulario</button>
+        <button class="btn btn-primary" id="insert">Insertar</button>
         <br><br>
-        <div id="form1" style="display:none">
-        	<section>
-            	<form class="form-vertical" action="<?php echo base_url(); ?>cursos/<?php echo $accion; ?>" method="post">
-                    <?php echo $id; ?>
-            		<p><label>Codigo:</label> <input autofocus type="text" name="code" value="<?php echo $code; ?>" required/></p>
-            		<p><label>Nombre:</label> <input type="text" name="name" value="<?php echo $name; ?>" required/></p>
-                    <p><label>Descripción:</label> <input class="input-xxlarge" type="text" name="description" value="<?php echo $description; ?>" required/></p>                    
-                    <p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/></p>
-            	</form>
-            </section>
-        </div>
+        
+    	<section>
+        	<form class="form-vertical" action="<?php echo base_url(); ?>cursos/<?php echo $accion; ?>" method="post">
+                <?php echo $id; ?>
+        		<p><label>Codigo:</label> <input autofocus type="text" name="code" value="<?php echo $code; ?>" required/></p>
+        		<p><label>Nombre:</label> <input type="text" name="name" value="<?php echo $name; ?>" required/></p>
+                <p><label>Descripción:</label> <input class="input-xxlarge" type="text" name="description" value="<?php echo $description; ?>" required/></p>                    
+                <p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/></p>
+        	</form>
+        </section>
         <section>
 
             <!--Creación de Tabla-->
             <table class="table table-striped table-bordered table-condensed">
-            
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
+            </tr>
             </table>
             <?php if (count($cursos) > 0 ): ?>
                 <?php foreach($cursos as $curso) : ?>
                 <table class="table table-striped table-bordered table-condensed"> <!--border="1" width="750px" cellpacing="50px"-->
-                    <tr>
-                        <th>Codigo</th>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Modificar</th>
-                        <th>Eliminar</th>
-                    </tr>
                     <tr>
                         <td class="codigo"><?php echo $curso->code; ?></td>
                         <td class="name"><?php echo $curso->name; ?></td>
@@ -116,25 +107,13 @@
                 </table>
                 <?php endforeach; ?>
             <?php else :?>
-                <h2>Lo sentimos, aún no hay cursos registrados</h2>
+                <h2>No hay registros</h2>
             <?php endif; ?>
         </section>
     </div>
-    <footer>
-        <script src="<?php echo base_url();?>js/jquery.js"></script>
-        <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-        <script type="text/javascript">
-                $(document).ready(function() {
 
-                    $("#mostrar").click(function(ver){
-                        $("#form1").show("slow");
-                    });
-
-                    $("#ocultar").click(function(ver){
-                        $("#form1").hide(1000);
-                    });
-                });    
-        </script>
-     </footer>
+    <script src="<?php echo base_url();?>js/jquery.js"></script>
+    <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
+    
 </body>
 </html>

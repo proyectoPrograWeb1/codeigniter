@@ -12,7 +12,7 @@
               <div class="navbar-inner">
                 <ul class="nav">
                   <li>
-                    <a href="<?php echo base_url(); ?>inicial">Usuarios</a>
+                    <a href="<?php echo base_url(); ?>inicial">  Inicio  </a>
                   </li>
                   <li>
                     <a href="<?php echo base_url(); ?>estudiantes">Estudiantes</a>
@@ -25,12 +25,6 @@
                   </li>
                   <li>
                     <a href="<?php echo base_url(); ?>grupos">Grupos</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>aulas">Aulas</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>carreras">Carreras</a>
                   </li>
                   <li>
                     <a href="#">Horario</a>
@@ -46,6 +40,7 @@
                 $username = $profesor_actualizar->username;
                 $last_name = $profesor_actualizar->last_name;
                 $document_number = $profesor_actualizar->document_number;       
+                //$password = $profesor_actualizar->password;       
                 $email = $profesor_actualizar->email;
                 $accion = 'actualizar';
             }
@@ -71,74 +66,54 @@
             </form>
         </div>
 
-        <button class="btn btn-primary" id="mostrar">Ver Formulario</button>
-        <button class="btn btn-primary" id="ocultar">Ocultar Formulario</button>
+        <button class="btn btn-primary" id="insert">Insertar</button>
         <br><br>
         <!--Formulario para cambiar datos-->
-        <div id="form1" style="display:none">
-        	<section id="parrafo">
-            	<form action="<?php echo base_url(); ?>profesores/<?php echo $accion; ?>" method="post">
-                    <?php echo $id; ?>
-            		<p><label>Nombre:</label> <input autofocus type="text" name="first_name" value="<?php echo $first_name; ?>" required/></p>
-            		<p><label>Apellido:</label> <input type="text" name="last_name" value="<?php echo $last_name; ?>" required/></p>
-                    <p><label>Username:</label> <input type="text" name="username" value="<?php echo $username; ?>" required/></p>
-                    <p><label>Cedula:</label> <input type="text" name="document_number" value="<?php echo $document_number; ?>" required/></p>
-                    <p><label>Email:</label> <input type="text" name="email" value="<?php echo $email; ?>" required/></p>
-            		<p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar" /></p>
-            	</form>
-            </section>
-        </div>
-        <section>
+    	<section id="parrafo">
+        	<form action="<?php echo base_url(); ?>profesores/<?php echo $accion; ?>" method="post">
+                <?php echo $id; ?>
+        		<p><label>Nombre:</label> <input autofocus type="text" name="first_name" value="<?php echo $first_name; ?>" required/></p>
+        		<p><label>Apellido:</label> <input type="text" name="last_name" value="<?php echo $last_name; ?>" required/></p>
+                <p><label>Username:</label> <input type="text" name="username" value="<?php echo $username; ?>" required/></p>
+                <p><label>Cedula:</label> <input type="text" name="document_number" value="<?php echo $document_number; ?>" required/></p>
+                <p><label>Email:</label> <input type="text" name="email" value="<?php echo $email; ?>" required/></p>
+        		<p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar" /></p>
+        	</form>
+
 
             <!--Muestra la tabla-->
             <table class="table table-striped table-bordered table-condensed">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Nombre de Usuario</th>
-                    <th>Cédula</th>
-                    <th>Email</th>
-                    <th>Modificar</th>
-                    <th>Eliminar</th>
-                </tr>
-                <?php if (count($profesores) > 0 ): ?>
-                    <?php foreach($profesores as $profesor) : ?>
-                    
-                        <tr>
-                            <td class="nombre"><?php echo $profesor->first_name; ?></td>
-                            <td class="apellido"><?php echo $profesor->last_name; ?></td>
-                            <td class="username"><?php echo $profesor->username; ?></td>
-                            <td class="cedula"><?php echo $profesor->document_number; ?></td>
-                            <!--p class="password" ><?php echo $estudiante->password; ?></p-->
-                            <td class="email"><?php echo $profesor->email; ?></td>
-                            <td><a href="<?php echo base_url(); ?>index.php/profesores/index/<?php echo $profesor->id; ?>"><button class="btn">Modificar</button><a/></td>
-                            <td><a href="<?php echo base_url(); ?>index.php/profesores/eliminar/<?php echo $profesor->id; ?>"><button class="btn btn-danger">Eliminar</button><a/></td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else :?>
-                    <h2>Lo sentimos, aún no hay profesores registrados</h2>
-                <?php endif; ?>
+            <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nombre de Usuario</th>
+            <th>Cédula</th>
+            <th>Email</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            </tr>
             </table>
+            <?php if (count($profesores) > 0 ): ?>
+                <?php foreach($profesores as $profesor) : ?>
+                <table class="table table-striped table-bordered table-condensed">
+                    <tr>
+                    <td class="nombre"><?php echo $profesor->first_name; ?></td>
+                    <td class="apellido"><?php echo $profesor->last_name; ?></td>
+                    <td class="username"><?php echo $profesor->username; ?></td>
+                    <td class="cedula"><?php echo $profesor->document_number; ?></td>
+                    <!--p class="password" ><?php echo $estudiante->password; ?></p-->
+                    <td class="email"><?php echo $profesor->email; ?></td>
+                    <td><a href="<?php echo base_url(); ?>index.php/profesores/index/<?php echo $profesor->id; ?>"><button class="btn">Modificar</button><a/></td>
+                    <td><a href="<?php echo base_url(); ?>index.php/profesores/eliminar/<?php echo $profesor->id; ?>"><button class="btn btn-danger">Eliminar</button><a/></td>
+                    </tr>
+                </table>
+                <?php endforeach; ?>
+            <?php else :?>
+                <h2>No hay registros</h2>
+            <?php endif; ?>
         </section>
-    </div>   
-     <footer>
-        
-        <script src="<?php echo base_url();?>js/jquery.js"></script>
-        <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-
-                $("#mostrar").click(function(ver){
-                    $("#form1").show("slow");
-                });
-
-                $("#ocultar").click(function(ver){
-                    $("#form1").hide(1000);
-                });
-            });    
-
-        </script>
-    </footer>
+    </div>    
+     <script src="<?php echo base_url();?>js/jquery.js"></script>
+     <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
 </body>
 </html>

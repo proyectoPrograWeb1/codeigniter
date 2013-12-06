@@ -33,7 +33,7 @@
               <div class="navbar-inner">
                 <ul class="nav">
                   <li>
-                    <a href="<?php echo base_url(); ?>inicial">  Usuarios  </a>
+                    <a href="<?php echo base_url(); ?>inicial">  Inicio  </a>
                   </li>
                   <li>
                     <a href="<?php echo base_url(); ?>estudiantes">Estudiantes</a>
@@ -48,19 +48,13 @@
                     <a href="<?php echo base_url(); ?>grupos">Grupos</a>
                   </li>
                   <li>
-                    <a href="<?php echo base_url(); ?>aulas">Aulas</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>carreras">Carreras</a>
-                  </li>
-                  <li>
                     <a href="#">Horario</a>
                   </li>
                 </ul>
             </div>
         </div>
     
-    	<h2>Grupo CRUD</h2>
+    	<h2>grupo CRUD</h2>
 
         <div class="control-group">
             <form class="form-inline">
@@ -71,45 +65,46 @@
             </form>
         </div>
 
-        <button class="btn btn-primary" id="mostrar">Ver Formulario</button>
-        <button class="btn btn-primary" id="ocultar">Ocultar Formulario</button>
+        <button class="btn btn-primary" id="insert">Insertar</button>
         <br><br>
-        <div id="form1" style="display:none">
-        	<section >
-            	<form class="form-horizontal" action="<?php echo base_url(); ?>grupos/<?php echo $accion; ?>" method="post">
-                    <?php echo $id; ?>
-            		<p><label>Curso id:</label> <input autofocus type="text" name="course_id" value="<?php echo $course_id; ?>" required/></p>
-            		<p><label>Profesor id:</label> <input type="text" name="professor_id" value="<?php echo $professor_id; ?>" required/></p>
-                    <p><label>Cuatrimestre:</label> <input type="text" name="quarter " value="<?php echo $quarter ; ?>" required/></p>
-                    <p><label>Número de Grupo:</label> <input type="text" name="group_number" value="<?php echo $group_number; ?>" required/></p>
-                    <p><label>Estado:</label> <input type="text" name="enabled" value="<?php echo $enabled; ?>" required/></p>
-            		<p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/></p>
-            	</form>
-            </section>
-            <section>
+        <div id="form1" "> <!--style="display:none-->
+    	<section >
+        	<form class="form-horizontal" action="<?php echo base_url(); ?>grupos/<?php echo $accion; ?>" method="post">
+                <?php echo $id; ?>
+        		<p><label>Curso id:</label> <input autofocus type="text" name="course_id" value="<?php echo $course_id; ?>" required/></p>
+        		<p><label>Profesor id:</label> <input type="text" name="professor_id" value="<?php echo $professor_id; ?>" required/></p>
+                <p><label>Cuatrimestre:</label> <input type="text" name="quarter " value="<?php echo $quarter ; ?>" required/></p>
+                <p><label>Número de Grupo:</label> <input type="text" name="group_number" value="<?php echo $group_number; ?>" required/></p>
+                <p><label>Estado:</label> <input type="text" name="enabled" value="<?php echo $enabled; ?>" required/></p>
+        		<p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar"/></p>
+        	</form>
+        </section>
+        <section>
         </div>
-        <!--Creación de Tabla-->
-        <table class="table table-striped table-striped table-bordered table-condensed"> <!--border="1" width="750px" cellpacing="50px"-->
+
+            <!--Creación de Tabla-->
+            <table class="table table-striped table-bordered table-condensed">
             <tr>
-                    <th>Curso id</th>
-                    <th>Profesor id</th>
-                    <th>Cuatrimestre</th>
-                    <th>Númoero de Grupo</th>
-                    <th>Estado</th>
-                    <th>Modificar</th>
-                    <th>Eliminar</th>
-                </tr>
-                
+            <th>Curso id</th>
+            <th>Profesor id</th>
+            <th>Cuatrimestre</th>
+            <th>Númoero de Grupo</th>
+            <th>Estado</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
+            </tr>
+            </table>
             <?php if (count($grupos) > 0 ): ?>
                 <?php foreach($grupos as $grupo) : ?>
+                <table class="table table-striped table-bordered table-condensed"> <!--border="1" width="750px" cellpacing="50px"-->
                     <tr>
-                        <td class="curso_id"><?php echo $grupo->course_id; ?></td>
-                        <td class="profesor_id"><?php echo $grupo->professor_id; ?></td>
-                        <td class="cuatrimestre "><?php echo $grupo->quarter ; ?></td>
-                        <td class="numoero_de_Grupo"><?php echo $grupo->group_number; ?></td>
-                        <td class="estado"><?php echo $grupo->enabled; ?></td>
-                        <td colspan="0"><a href="<?php echo base_url(); ?>index.php/grupos/index/<?php echo $grupo->id; ?>"><button class="btn" id="inserte">Modificar</button><a/></td>
-                        <td colspan="0"><a href="<?php echo base_url(); ?>index.php/grupos/eliminar/<?php echo $grupo->id; ?>"><button class="btn btn-danger">Eliminar</button><a/></td>
+                    <td class="curso_id"><?php echo $grupo->course_id; ?></td>
+                    <td class="profesor_id"><?php echo $grupo->professor_id; ?></td>
+                    <td class="cuatrimestre "><?php echo $grupo->quarter ; ?></td>
+                    <td class="numoero_de_Grupo"><?php echo $grupo->group_number; ?></td>
+                    <td class="estado"><?php echo $grupo->enabled; ?></td>
+                    <td colspan="0"><a href="<?php echo base_url(); ?>index.php/grupos/index/<?php echo $grupo->id; ?>"><button class="btn" id="inserte">Modificar</button><a/></td>
+                    <td colspan="0"><a href="<?php echo base_url(); ?>index.php/grupos/eliminar/<?php echo $grupo->id; ?>"><button class="btn btn-danger">Eliminar</button><a/></td>
                     </tr>
                 </table>
             <?php endforeach; ?>
@@ -126,12 +121,8 @@
         <script type="text/javascript">
             $(document).ready(function() {
 
-                $("#mostrar").click(function(ver){
+                $("#insert").click(function(ver){
                     $("#form1").show("slow");
-                });
-
-                $("#ocultar").click(function(ver){
-                    $("#form1").hide(1000);
                 });
             });    
 

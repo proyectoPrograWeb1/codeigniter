@@ -33,7 +33,7 @@
               <div class="navbar-inner">
                 <ul class="nav">
                   <li>
-                    <a href="<?php echo base_url(); ?>inicial">Usuarios</a>
+                    <a href="<?php echo base_url(); ?>inicial">  Inicio  </a>
                   </li>
                   <li class="active">
                     <a href="<?php echo base_url(); ?>estudiantes">Estudiantes</a>
@@ -46,12 +46,6 @@
                   </li>
                   <li>
                     <a href="<?php echo base_url(); ?>grupos">Grupos</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>aulas">Aulas</a>
-                  </li>
-                  <li>
-                    <a href="<?php echo base_url(); ?>carreras">Carreras</a>
                   </li>
                   <li>
                     <a href="#">Horario</a>
@@ -71,8 +65,7 @@
             </form>
         </div>
 
-        <button class="btn btn-primary" id="mostrar">Ver Formulario</button>
-        <button class="btn btn-primary" id="ocultar">Ocultar Formulario</button>
+        <button class="btn btn-primary" id="insert">Insertar</button>
         <br><br>
         <div id="form1" style="display:none"> <!--style="display:none-->
     	<section >
@@ -88,20 +81,23 @@
         </section>
         <section>
         </div>
-        <!--Creación de Tabla-->
-        <table class="table table-striped table-bordered table-condensed"> <!--border="1" width="750px" cellpacing="50px"-->
+
+            <!--Creación de Tabla-->
+            <table class="table table-striped table-bordered table-condensed">
             <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Nombre de Usuario</th>
-                <th>Cédula</th>
-                <th>Email</th>
-                <th>Modificar</th>
-                <th>Eliminar</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Nombre de Usuario</th>
+            <th>Cédula</th>
+            <th>Email</th>
+            <th>Modificar</th>
+            <th>Eliminar</th>
             </tr>
+            </table>
             <?php if (count($estudiantes) > 0 ): ?>
                 <?php foreach($estudiantes as $estudiante) : ?>
-                <tr>
+                <table class="table table-striped table-bordered table-condensed"> <!--border="1" width="750px" cellpacing="50px"-->
+                    <tr>
                     <td class="nombre"><?php echo $estudiante->first_name; ?></td>
                     <td class="apellido"><?php echo $estudiante->last_name; ?></td>
                     <td class="username"><?php echo $estudiante->username; ?></td>
@@ -109,13 +105,12 @@
                     <td class="email"><?php echo $estudiante->email; ?></td>
                     <td colspan="0"><a href="<?php echo base_url(); ?>index.php/estudiantes/index/<?php echo $estudiante->id; ?>"><button class="btn" id="inserte">Modificar</button><a/></td>
                     <td colspan="0"><a href="<?php echo base_url(); ?>index.php/estudiantes/eliminar/<?php echo $estudiante->id; ?>"><button class="btn btn-danger">Eliminar</button><a/></td>
-                </tr>
+                    </tr>
+                </table>
             <?php endforeach; ?>
             <?php else :?>
-                <h2>Lo sentimos, aún no hay estudiantes registrados</h2>
+                <h2>Lo sentimos, aún no hay profesores registros</h2>
             <?php endif; ?>
-        </table>
-            
         </section>
     </div>
     <footer>
@@ -126,16 +121,12 @@
         <script type="text/javascript">
             $(document).ready(function() {
 
-                $("#mostrar").click(function(ver){
-                    
-                        $("#form1").show("slow");
-
+                $("#insert").click(function(ver){
+                    $("#form1").show("slow");
                 });
 
                 $("#ocultar").click(function(ver){
-
-                    $("#form1").hide(1000);
-
+                    $("#form1").hide(50);
                 });
             });    
 
