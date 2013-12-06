@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="<?php echo base_url();?>css/bootstrap.min.css">
     <meta charset="UTF-8">
 </head>
-<body>
+<body style="background-color:#0088BB;">
 
-    <div class="container" style="top:100px">
+    <div style="background-color:#0088BB;" class="container" style="top:100px">
         <div class="navbar">
               <div class="navbar-inner">
                 <ul class="nav">
@@ -21,7 +21,7 @@
                     <a href="<?php echo base_url(); ?>profesores">Profesor</a>
                   </li>
                   <li>
-                    <a href="#">Cursos</a>
+                    <a href="<?php echo base_url(); ?>cursos">Cursos</a>
                   </li>
                   <li>
                     <a href="#">Grupos</a>
@@ -59,20 +59,19 @@
     	<h2>Profesor CRUD</h2> <br>
         <!--Formulario para cambiar datos-->
     	<section id="parrafo">
-        	<form action="<?php echo base_url(); ?>index.php/profesores/<?php echo $accion; ?>" method="post">
+        	<form action="<?php echo base_url(); ?>profesores/<?php echo $accion; ?>" method="post">
                 <?php echo $id; ?>
-        		<p><label>Nombre:</label> <input autofocus type="text" name="first_name" value="<?php echo $first_name; ?>" /></p>
-        		<p><label>Username:</label> <input type="text" name="username" value="<?php echo $username; ?>" /></p>
-                <p><label>Apellido:</label> <input type="text" name="last_name" value="<?php echo $last_name; ?>" /></p>
-                <p><label>Cedula:</label> <input type="text" name="document_number" value="<?php echo $document_number; ?>" /></p>
-                <!--p><label>Password:</label> <input type="password" name="password" value="<?php echo $password; ?>" /></p-->
-        		<p><label>Email:</label> <input type="text" name="email" value="<?php echo $email; ?>" /></p>
+        		<p><label>Nombre:</label> <input autofocus type="text" name="first_name" value="<?php echo $first_name; ?>" required/></p>
+        		<p><label>Apellido:</label> <input type="text" name="last_name" value="<?php echo $last_name; ?>" required/></p>
+                <p><label>Username:</label> <input type="text" name="username" value="<?php echo $username; ?>" required/></p>
+                <p><label>Cedula:</label> <input type="text" name="document_number" value="<?php echo $document_number; ?>" required/></p>
+                <p><label>Email:</label> <input type="text" name="email" value="<?php echo $email; ?>" required/></p>
         		<p><input class="btn btn-primary" type="submit" name="guardar" value="Guardar" /></p>
         	</form>
 
 
             <!--Muestra la tabla-->
-            <table class="table">
+            <table class="table table-striped table-bordered table-condensed">
             <tr>
             <th>Nombre</th>
             <th>Apellido</th>
@@ -85,7 +84,7 @@
             </table>
             <?php if (count($profesores) > 0 ): ?>
                 <?php foreach($profesores as $profesor) : ?>
-                <table class="table">
+                <table class="table table-striped table-bordered table-condensed">
                     <tr>
                     <td class="nombre"><?php echo $profesor->first_name; ?></td>
                     <td class="apellido"><?php echo $profesor->last_name; ?></td>

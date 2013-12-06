@@ -20,8 +20,9 @@ class Estudiantes extends CI_Controller{
 			);
 
 		$this->load->model('estudiante_model');
-		if ( $this->estudiante_model->insertar_estudiante($estudiante) )
+		if ( $this->estudiante_model->insertar_estudiante($estudiante) ){
 			redirect('estudiantes');	 
+		}
 	}
 
 	public function actualizar(){
@@ -36,15 +37,17 @@ class Estudiantes extends CI_Controller{
 		$id = $this->input->post('id');
 
 		$this->load->model('estudiante_model');
-		if( $this->estudiante_model->actualiza_estudiante($id, $estudiante) )
+		if( $this->estudiante_model->actualiza_estudiante($id, $estudiante) ){
 			redirect('estudiantes');		
+		}
 	}
 
 	public function eliminar(){
 		$id = $this->uri->segment(3);
 		$this->load->model('estudiante_model');
-		if( $this->estudiante_model->eliminar_estudiante($id) )
+		if( $this->estudiante_model->eliminar_estudiante($id) ){
 			redirect('estudiantes');
+		}
 	}
 
 	public function index(){		

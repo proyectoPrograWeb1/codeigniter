@@ -13,7 +13,7 @@ class Profesor_model extends CI_Model{
 
 	public function leer_profesor(){
 
-		$this->db->order_by('id DESC');
+		$this->db->order_by('id ASC');
 
 		$query = $this->db->get('professor');
 

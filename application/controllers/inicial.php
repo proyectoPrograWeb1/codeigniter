@@ -10,7 +10,7 @@ class Inicial extends CI_Controller{
 
 	public function insertar(){
 
-		$profesor = array(
+		$user = array(
 			'first_name' => $this->input->post('first_name'),
 			'username' => $this->input->post('username'),
 			'last_name' => $this->input->post('last_name'),
@@ -25,7 +25,7 @@ class Inicial extends CI_Controller{
 	}
 
 	public function actualizar(){
-		$profesor = array(
+		$user = array(
 			'first_name' => $this->input->post('first_name'),
 			'username' => $this->input->post('username'),
 			'last_name' => $this->input->post('last_name'),

@@ -3,17 +3,19 @@
 class Estudiante_model extends CI_Model{
 
 	public function insertar_estudiante($estudiante){
-
-		if ( $this->db->insert('student', $estudiante) )
-			return true;		
-		else
-			return false;
+		//Validación para saber si inserta estudiante o no
+		if ( $this->db->insert('student', $estudiante) ){
+			return true; //Devuelve true		
+		}
+		else{
+			return false; //Devuelve true
+		}
 
 	}
 
 	public function leer_estudiante(){
 
-		$this->db->order_by('id DESC');
+		$this->db->order_by('id ASC'); //Ordena en forma asendente
 
 		$query = $this->db->get('student');
 

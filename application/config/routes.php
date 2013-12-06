@@ -40,6 +40,7 @@
 
 $route['default_controller'] = ""; //person
 $route['404_override'] = '';
+//$route['iniciodesesion.html'] = "usuarios";
 //$route['estudiante.html'] = "students";
 //$route['student'] = "students";
 //$route['students/:any/([a-z]+)/(\d+)'] = "students/insert/id_2";
